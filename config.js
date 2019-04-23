@@ -2,5 +2,5 @@
 
 module.exports = {
   url: 'mongodb://localhost:31000/test?replicaSet=rs',
-  options: { useNewUrlParser: true, useUnifiedTopology: true }
+  options: { useNewUrlParser: true, useUnifiedTopology: true, poolSize: 10 }
 };
