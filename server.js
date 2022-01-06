@@ -31,12 +31,12 @@ async function main() {
       return;
     }
 
-    requestId++;
+    const rid = requestId++;
 
     try {
       const start = process.hrtime();
       const docs = await coll.distinct('siteCode', { status: 'pending', startAfter: { $lt: random(100000) }});
-      console.log(`request[${requestId}] completed in ${calculateDurationInMs(start)} ms`);
+      console.log(`request[${rid}] completed in ${calculateDurationInMs(start)} ms`);
 
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.end(JSON.stringify(docs));
